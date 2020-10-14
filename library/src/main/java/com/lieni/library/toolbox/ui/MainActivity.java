@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.lieni.library.easyfloat.EasyFloat;
 import com.lieni.library.toolbox.R;
 import com.lieni.library.toolbox.Toolbox;
 
@@ -21,5 +22,12 @@ public class MainActivity extends Activity {
         findViewById(R.id.btTest).setOnClickListener(Toolbox.getInstance().getOnClickListener("test"));
         findViewById(R.id.btUat).setOnClickListener(Toolbox.getInstance().getOnClickListener("uat"));
         findViewById(R.id.btRelease).setOnClickListener(Toolbox.getInstance().getOnClickListener("release"));
+        findViewById(R.id.btExit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toolbox.exit();
+                finish();
+            }
+        });
     }
 }

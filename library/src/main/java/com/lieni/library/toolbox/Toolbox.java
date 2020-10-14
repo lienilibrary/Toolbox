@@ -20,21 +20,21 @@ public class Toolbox {
 
     Map<String, View.OnClickListener> onClickListeners=new HashMap<>();
 
-    public void setOnDevClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("dev",clickListener);
-    }
-    public void setOnDebugClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("debug",clickListener);
-    }
-    public void setOnUatClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("uat",clickListener);
-    }
-    public void setOnReleaseClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("release",clickListener);
-    }
-
     public View.OnClickListener getOnClickListener(String tag){
         return getInstance().onClickListeners.get(tag);
+    }
+
+    public static void setOnDevClickListener(View.OnClickListener clickListener){
+        getInstance().onClickListeners.put("dev",clickListener);
+    }
+    public static void setOnDebugClickListener(View.OnClickListener clickListener){
+        getInstance().onClickListeners.put("debug",clickListener);
+    }
+    public static void setOnUatClickListener(View.OnClickListener clickListener){
+        getInstance().onClickListeners.put("uat",clickListener);
+    }
+    public static void setOnReleaseClickListener(View.OnClickListener clickListener){
+        getInstance().onClickListeners.put("release",clickListener);
     }
 
     public static Toolbox getInstance() {
@@ -72,5 +72,8 @@ public class Toolbox {
                 addInvalidActivityName(MainActivity.class.getName());
             }
         });
+    }
+    public static void exit(){
+        EasyFloat.removeImmediately("toolbox");
     }
 }

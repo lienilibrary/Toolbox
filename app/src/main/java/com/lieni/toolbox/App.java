@@ -11,7 +11,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Toolbox.init(this);
-        Toolbox.getInstance().setOnDevClickListener(new View.OnClickListener() {
+        Toolbox.setOnDevClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"test",Toast.LENGTH_SHORT).show();
