@@ -17,6 +17,7 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class Toolbox {
     public static volatile Toolbox instance;
+    private static String defaultEnv="debug";
 
     Map<String, View.OnClickListener> onClickListeners=new HashMap<>();
 
@@ -35,6 +36,13 @@ public class Toolbox {
     }
     public static void setOnReleaseClickListener(View.OnClickListener clickListener){
         getInstance().onClickListeners.put("release",clickListener);
+    }
+    public static void setDefaultEnv(String env){
+        defaultEnv=env;
+    }
+
+    public static String getDefaultEnv() {
+        return defaultEnv;
     }
 
     public static Toolbox getInstance() {
@@ -68,7 +76,7 @@ public class Toolbox {
             @Override
             public void onConfig() {
                 super.onConfig();
-                setInitPosition(400,400);
+                setInitPosition(600,400);
                 addInvalidActivityName(MainActivity.class.getName());
             }
         });

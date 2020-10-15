@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">library</string>
+    <string name="env_hint">当前环境:%s</string>
 </resources>
