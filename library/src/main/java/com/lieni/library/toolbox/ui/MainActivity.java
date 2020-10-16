@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.lieni.library.toolbox.R;
 import com.lieni.library.toolbox.Toolbox;
 
+
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,10 +21,10 @@ public class MainActivity extends Activity {
         initView();
     }
     private void initView(){
-        findViewById(R.id.btDev).setOnClickListener(getOnClickListener("dev"));
-        findViewById(R.id.btTest).setOnClickListener(getOnClickListener("test"));
-        findViewById(R.id.btUat).setOnClickListener(getOnClickListener("uat"));
-        findViewById(R.id.btRelease).setOnClickListener(getOnClickListener("release"));
+        findViewById(R.id.btDev).setOnClickListener(getOnClickListener(Toolbox.TAG_DEV));
+        findViewById(R.id.btTest).setOnClickListener(getOnClickListener(Toolbox.TAG_DEBUG));
+        findViewById(R.id.btUat).setOnClickListener(getOnClickListener(Toolbox.TAG_UAT));
+        findViewById(R.id.btRelease).setOnClickListener(getOnClickListener(Toolbox.TAG_RELEASE));
         findViewById(R.id.btExit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +43,7 @@ public class MainActivity extends Activity {
                 View.OnClickListener listener=Toolbox.getInstance().getOnClickListener(env);
                 if(listener!=null) listener.onClick(v);
                 save(env);
-                Toast.makeText(getApplicationContext(),"切换成功，请杀死后重新进入！",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"切换成功，请杀死APP后重新进入！",Toast.LENGTH_SHORT).show();
             }
         };
     }

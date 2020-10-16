@@ -16,8 +16,13 @@ import java.util.Map;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class Toolbox {
+    public static final String TAG_DEV="dev";
+    public static final String TAG_DEBUG="debug";
+    public static final String TAG_UAT="uat";
+    public static final String TAG_RELEASE="release";
+
     public static volatile Toolbox instance;
-    private static String defaultEnv="debug";
+    private static String defaultEnv=TAG_DEBUG;
 
     Map<String, View.OnClickListener> onClickListeners=new HashMap<>();
 
@@ -26,16 +31,16 @@ public class Toolbox {
     }
 
     public static void setOnDevClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("dev",clickListener);
+        getInstance().onClickListeners.put(TAG_DEV,clickListener);
     }
     public static void setOnDebugClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("debug",clickListener);
+        getInstance().onClickListeners.put(TAG_DEBUG,clickListener);
     }
     public static void setOnUatClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("uat",clickListener);
+        getInstance().onClickListeners.put(TAG_UAT,clickListener);
     }
     public static void setOnReleaseClickListener(View.OnClickListener clickListener){
-        getInstance().onClickListeners.put("release",clickListener);
+        getInstance().onClickListeners.put(TAG_RELEASE,clickListener);
     }
     public static void setDefaultEnv(String env){
         defaultEnv=env;
